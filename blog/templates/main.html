@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="main.css">
+
+    <title>{% block title %} Template Error {% endblock %}</title>
+</head>
+<body>
+  <header><a href="/">Text</a></header>
+  {% block content %}
+    <h1 style="color:red">Template Error</h1>
+  {% endblock %}
+</body>
+</html>

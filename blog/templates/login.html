@@ -1,0 +1,10 @@
+{% extends main.html %}
+{% block title %}Login{% endblock %}
+{% block content %}
+    <form method="post" action="/login/new/" >
+        <input type="text">
+        <input type="password">
+        <button type="submit">Login!</button>
+        <a href="/"><button type="reset">Cancel</button></a>
+    </form>
+{% endblock %}
