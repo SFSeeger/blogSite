@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from .models import Author, Blogpage
 import datetime
 import hashlib
 
@@ -10,15 +11,19 @@ def index(request):
 
 def login(request):
     if request.method == "GET":
-        return render(request, 'login.html')
+        return render(request, 'login.html', context={'error':False, 'error_msg':''})
     else:
         data = request.POST
-        print(data)
-        print(data["user"])
-        if hashlib.sha256(data["pass"]):
+        if Author.objects.all().filter(username=data['user'], password=hashlib.sha256(data["pass"].encode())):
             # TODO: Set Auth Token
             print("Login")
             return redirect('/', context={'time': datetime.datetime.now()})
         else:
             print("nope")
-            return redirect('/', context={'time': datetime.datetime.now()})
+            return render(request, 'login.html', context={'error':True, 'error_msg':'Username or password incorrect'})
+
+def login_register(request):
+    if request.method == "GET":
+        return render(request, "register.html", context={'error':False, 'error_msg':''})
+    else:
+        data = request.POST

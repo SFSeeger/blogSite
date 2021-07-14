@@ -1,0 +1,28 @@
+{% block title %}Register new user{% endblock %}
+{% block content %}
+<div>
+  <form method="post" action="/login/register" >
+    {% csrf_token %}
+    {%if error%}
+    <p class="error">{{ error_msg }}</p>
+    {%endif%}
+    <label for="name">Name*</label>
+    <input type="text" name="name" required="required">
+    <label for="user">Username*</label>
+    <input type="text" name="user" required="required">
+    <label for="pass">Password*</label>
+    <input type="password" name="pass" required="required">
+    <label for="pass2">Repeat Password*</label>
+    <input type="password" name="pass2" required="required">
+    <label for="email">Email*</label>
+    <input type="email" name="email" required="required">
+    <label for="phone">Phone</label>
+    <input type="text" name="phone">
+
+    <button type="submit">Login!</button>
+    <a href="/"><button type="reset">Cancel</button></a>
+
+  </form>
+  <p>Already have an account? <a href="/login/">Log in</a></p>
+</div>
+{% endblock %}
