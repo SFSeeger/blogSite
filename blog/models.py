@@ -4,7 +4,7 @@ from django.db import models
 class Author(models.Model):
     name = models.CharField(max_length=25)
     username = models.CharField(max_length=25)
-    password = models.CharField(max_length=30)
+    password = models.CharField(max_length=60)
     phone = models.IntegerField(blank=True, null=True, unique=True)
     email = models.EmailField()
     lastIP = models.GenericIPAddressField(blank=True, null=True)

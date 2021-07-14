@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="main.css">
+    <link type="text/css" rel="stylesheet" href="{% static 'main.css' %}">
 
     <title>{% block title %} Template Error {% endblock %}</title>
 </head>
 <body>
-  <header><a href="/">Text</a></header>
+  <header style="background-color:green"><a href="/">Text</a></header>
   {% block content %}
     <h1 style="color:red">Template Error</h1>
   {% endblock %}
