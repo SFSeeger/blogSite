@@ -2,3 +2,5 @@ SECRET_KEY.txt
 /blog/migrations
 /.idea
 /__pycache__
+/blog/__pycache__
+/backend/__pycache__
